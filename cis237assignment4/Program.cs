@@ -16,6 +16,16 @@ namespace cis237assignment4
             //Create a user interface and pass the droidCollection into it as a dependency
             UserInterface userInterface = new UserInterface(droidCollection);
 
+            droidCollection.Add("Carbonite", "Protocol", "Gold", 7);
+            droidCollection.Add("Vanadium", "Protocol", "Silver", 10);
+            droidCollection.Add("Vanadium", "Astromech", "Silver", true, false, true, true, 5);
+            droidCollection.Add("Carbonite", "Astromech", "Gold", false, true, true, true, 3);
+            droidCollection.Add("Carbonite", "Utility", "Gold", false, true, false);
+            droidCollection.Add("Vanadium", "Utillity", "Silver", true, false, true);
+            droidCollection.Add("Carbonite", "Janatorial", "Gold", true, false, true, false, true);
+            droidCollection.Add("Vanadium", "Janatorial", "Silver", true, true, false, false, true);
+
+
             //Display the main greeting for the program
             userInterface.DisplayGreeting();
 
@@ -26,7 +36,7 @@ namespace cis237assignment4
             int choice = userInterface.GetMenuChoice();
 
             //While the choice is not equal to 3, continue to do work with the program
-            while (choice != 3)
+            while (choice != 5)
             {
                 //Test which choice was made
                 switch (choice)
