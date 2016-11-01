@@ -10,11 +10,16 @@ namespace cis237assignment4
     {
         static void Main(string[] args)
         {
+            DroidQueue<Droid> queue = new DroidQueue<Droid>();
+            DroidStack<Droid> stack = new DroidStack<Droid>();
+
             //Create a new droid collection and set the size of it to 100.
-            IDroidCollection droidCollection = new DroidCollection(100);
+            IDroidCollection droidCollection = new DroidCollection(100, queue, stack);
 
             //Create a user interface and pass the droidCollection into it as a dependency
             UserInterface userInterface = new UserInterface(droidCollection);
+
+            DroidQueue<Droid> queue = new DroidQueue<Droid>();
 
             droidCollection.Add("Carbonite", "Protocol", "Gold", 7);
             droidCollection.Add("Vanadium", "Protocol", "Silver", 10);

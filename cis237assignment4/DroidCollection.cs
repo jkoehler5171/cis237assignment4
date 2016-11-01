@@ -125,9 +125,12 @@ namespace cis237assignment4
             return returnString;
         }
 
-        public void ModelSort()
+        public void ModelSort(DroidQueue<Droid> queue)
         {
-
+            for(int counter = 0; counter < droidCollection.GetLength(0); counter++ )
+            {
+                queue.QueueDroid(droidCollection[counter]);
+            }
         }
 
     }
