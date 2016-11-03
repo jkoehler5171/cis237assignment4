@@ -125,12 +125,62 @@ namespace cis237assignment4
             return returnString;
         }
 
-        public void ModelSort(DroidQueue<Droid> queue)
+        public void ModelSort(DroidQueue<IDroid> queue, DroidStack<IDroid> protocolStack, DroidStack<IDroid> janitorStack, DroidStack<IDroid> utilityStack, 
+            DroidStack<IDroid> astromechStack)
         {
             for(int counter = 0; counter < droidCollection.GetLength(0); counter++ )
             {
-                queue.QueueDroid(droidCollection[counter]);
+                if (this.droidCollection[counter] != null)
+                {
+                    switch (this.droidCollection[counter].Model)
+                    {
+                        case "Protocol":
+                            protocolStack.AddDroid(this.droidCollection[counter]);
+                            break;
+                        case "Astromech":
+                            astromechStack.AddDroid(this.droidCollection[counter]);
+                            break;
+                        case "Janitorial":
+                            janitorStack.AddDroid(this.droidCollection[counter]);
+                            break;
+                        case "Utility":
+                            utilityStack.AddDroid(this.droidCollection[counter]);
+                            break;
+                    }
+                }
             }
+
+            
+
+            while(astromechStack.Size != 0)
+            {
+                queue.QueueDroid(astromechStack.RemoveDroid());
+            }
+
+            while(janitorStack.Size != 0)
+            {
+                queue.QueueDroid(janitorStack.RemoveDroid());
+            }
+
+            while(utilityStack.Size != 0)
+            {
+                queue.QueueDroid(utilityStack.RemoveDroid());
+            }
+
+            while(protocolStack.Size != 0)
+            {
+                queue.QueueDroid(protocolStack.RemoveDroid());
+            }
+            lengthOfCollection = 0;
+
+            while(queue.Size != 0)
+            {
+                this.droidCollection[lengthOfCollection] = queue.UnQueueDroid();
+                lengthOfCollection++;
+            }
+
+
+
         }
 
     }

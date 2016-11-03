@@ -32,6 +32,11 @@ namespace cis237assignment4
             this.color = Color;
         }
 
+        public string Model
+        {
+            get { return model; }
+        }
+
         //Virtual method that can be overridden in the derived classes if needed.
         //This implementation calculates the cost based on the material used for the droid
         protected virtual void CalculateBaseCost()
@@ -66,5 +71,8 @@ namespace cis237assignment4
                     "Model: " + this.model + Environment.NewLine +
                     "Color: " + this.color + Environment.NewLine;
         }
+
+        
+          
     }
 }

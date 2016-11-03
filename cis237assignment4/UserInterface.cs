@@ -11,11 +11,22 @@ namespace cis237assignment4
     {
         //Create a class level variable for the droid collection
         IDroidCollection droidCollection;
+        DroidQueue<IDroid> queue;
+        DroidStack<IDroid> astromechStack;
+        DroidStack<IDroid> janitorStack;
+        DroidStack<IDroid> utilityStack;
+        DroidStack<IDroid> protocolStack;
 
         //Constructor that will take in a droid collection to use
-        public UserInterface(IDroidCollection DroidCollection)
+        public UserInterface(IDroidCollection DroidCollection, DroidQueue<IDroid> Queue, DroidStack<IDroid> AstromechStack, DroidStack<IDroid> JanitorStack, DroidStack<IDroid> UtilityStack, 
+            DroidStack<IDroid> ProtocolStack)
         {
             this.droidCollection = DroidCollection;
+            this.queue = Queue;
+            this.astromechStack = AstromechStack;
+            this.janitorStack = JanitorStack;
+            this.utilityStack = UtilityStack;
+            this.protocolStack = ProtocolStack;             
         }
 
         //Method to display the welcome message of the program
@@ -96,6 +107,12 @@ namespace cis237assignment4
         {
             Console.WriteLine();
             Console.WriteLine(this.droidCollection.GetPrintString());
+        }
+
+        public void SortDroidListByModel()
+        {
+            droidCollection.ModelSort(queue, protocolStack, janitorStack, utilityStack, astromechStack);
+            PrintDroidList();
         }
 
         //Display the Model Selection

@@ -10,11 +10,11 @@ using System.Threading.Tasks;
 
 namespace cis237assignment4
 {
-    class DroidQueue<Droid>
+    class DroidQueue<T>
     {        
         protected class Node
         {
-            public Droid DroidData { get; set; }
+            public T DroidData { get; set; }
             public Node Next { get; set; }
         }
 
@@ -30,15 +30,20 @@ namespace cis237assignment4
             }
         }
 
+        public int Size
+        {
+            get { return _size; }
+        }
 
-        public void QueueDroid(Droid droid)
+
+        public void QueueDroid(T data)
         {
            
             Node oldTail = _tail;
             
             _tail = new Node();
             
-            _tail.DroidData = droid;
+            _tail.DroidData = data;
             
             _tail.Next = null;
                     
@@ -57,9 +62,30 @@ namespace cis237assignment4
         }
 
 
-        public void UnQueueDroid()
+        public T UnQueueDroid()
         {
+            if (IsEmpty)
+            {
+                throw new Exception("No Droids In List!");
+            }
 
+            
+            T returnData = _head.DroidData;
+
+          
+            _head = _head.Next;
+
+           
+            _size--;
+
+            
+            if (IsEmpty)
+            {
+                _tail = null;
+            }
+
+           
+            return returnData;
         }
 
     }

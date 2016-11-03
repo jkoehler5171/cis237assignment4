@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace cis237assignment4
 {
-    class DroidStack<Droid>
+    class DroidStack<T>
     {
         protected class Node
         {
-            public Droid DroidData { get; set; }
+            public T DroidData { get; set; }
             public Node Next { get; set; }
         }
 
@@ -21,13 +21,26 @@ namespace cis237assignment4
         private Node _tail;
         private int _size;
 
-        public void AddDroid(Droid droid)
+        public bool IsEmpty
+        {
+            get
+            {
+                return (_head == null);
+            }
+        }
+
+        public int Size
+        {
+            get { return _size; }
+        }
+
+        public void AddDroid(T data)
         {
             Node oldHead = _head;
 
             _head = new Node();
 
-            _head.DroidData = droid;
+            _head.DroidData = data;
 
             _head.Next = oldHead;
 
@@ -38,6 +51,27 @@ namespace cis237assignment4
                 _tail = _head;
             }
 
+        }
+
+        public T RemoveDroid()
+        {
+            if (IsEmpty)
+            {
+                throw new Exception("No Droids In List!");
+            }
+
+            T returnData = _head.DroidData;
+            
+            _head = _head.Next;
+            
+            _size--;
+            
+            if (IsEmpty)
+            {
+                _tail = null;
+            }
+            
+            return returnData;
         }
     }
 }
