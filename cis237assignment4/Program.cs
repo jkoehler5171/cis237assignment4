@@ -62,6 +62,9 @@ namespace cis237assignment4
                     case 3:
                         userInterface.SortDroidListByModel();
                         break;
+                    case 4:
+                        userInterface.SortDroidListByCost();
+                        break;
                 }
                 //Re-display the menu, and re-prompt for the choice
                 userInterface.DisplayMainMenu();

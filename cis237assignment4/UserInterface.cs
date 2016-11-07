@@ -112,7 +112,13 @@ namespace cis237assignment4
         public void SortDroidListByModel()
         {
             droidCollection.ModelSort(queue, protocolStack, janitorStack, utilityStack, astromechStack);
-            PrintDroidList();
+            Console.WriteLine("Droid List Sorted By Model");
+        }
+
+        public void SortDroidListByCost()
+        {
+            droidCollection.DroidMergeSort();
+            Console.WriteLine("Droid List Sorted By Cost");
         }
 
         //Display the Model Selection

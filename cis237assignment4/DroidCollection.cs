@@ -183,5 +183,10 @@ namespace cis237assignment4
 
         }
 
+        public void DroidMergeSort()
+        {
+            MergeSort.Sort(droidCollection);            
+        }
+
     }
 }

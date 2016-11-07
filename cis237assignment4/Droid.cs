@@ -73,6 +73,25 @@ namespace cis237assignment4
         }
 
         
-          
+        public int CompareTo(object obj)
+        {
+            if (obj == null)
+            {
+                return 1;
+            }
+
+            Droid otherDroid = obj as Droid;
+
+            if (otherDroid != null)
+            {
+                return this.totalCost.CompareTo(otherDroid.totalCost);
+            }
+            else
+                throw new ArgumentException("Droid Doesn't have a cost.");
+
+        }
+
+       
+
     }
 }
