@@ -12,7 +12,7 @@ namespace cis237assignment4
         {
             //Instanciates some a queue and a stack for each type of droid
             DroidQueue<IDroid> queue = new DroidQueue<IDroid>();
-            DroidStack<Proto> protocolStack = new DroidStack<IDroid>();
+            DroidStack<IDroid> protocolStack = new DroidStack<IDroid>();
             DroidStack<IDroid> utilityStack = new DroidStack<IDroid>();
             DroidStack<IDroid> astromechStack = new DroidStack<IDroid>();
             DroidStack<IDroid> janitorStack = new DroidStack<IDroid>();
