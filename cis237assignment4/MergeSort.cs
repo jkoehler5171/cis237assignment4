@@ -1,4 +1,8 @@
-﻿using System;
+﻿//Jordan Koehler
+//November 8th, 2016
+//CIS 237 TR 3:30 - 5:00
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,18 +17,22 @@ namespace cis237assignment4
 
         }
 
+        //This takes the seperated and sorted parts of the original array and puts them back together in the correct order.
+
         public static void Merge(IComparable[] og, IComparable[] aux, int low, int mid, int high)
         {
             for (int k = low; k <= high; k++)
             {
-                aux[k] = og[k];
+                if (og[k] != null)
+                {
+                    aux[k] = og[k];
+                }
             }
 
             int i = low, j = mid + 1;
             for (int k = low; k <= high; k++)
             {
-                if (aux[j] != null)
-                {
+              
                     if (i > mid)
                     {
                         og[k] = aux[j++];
@@ -46,18 +54,22 @@ namespace cis237assignment4
                                 og[k] = aux[i++];
                             }
                         }
-                    }
+                   
                 }
+                
             }
         }
 
-        public static void Sort(IComparable[] og)
+       //This sort is the first part of the  MergeSort that can be called by other classes. Starts the whole merge sort process.
+
+        public static void Sort(IComparable[] og, int arraysize)
         {
-            IComparable[] aux = new IComparable[og.GetLength(0)];
-            Sort(og, aux, 0, og.GetLength(0)- 1);
+            IComparable[] aux = new IComparable[arraysize];
+            Sort(og, aux, 0, arraysize - 1);
             
         }
 
+        //This sort is does most of the heavy lifting of the merge sort by calling itself recursively two times followed by merge to put the sorted data in order.
 
         private static void Sort(IComparable[] og, IComparable[] aux, int low, int high)
         {
@@ -66,9 +78,11 @@ namespace cis237assignment4
             Sort(og, aux, low, mid);
             Sort(og, aux, mid + 1, high);
             Merge(og, aux, low, mid, high);
+            
+            
         }
 
-
+        //This checks to see if one comparable object is smaller than the other.
 
         private static bool Less(IComparable v, IComparable w)
         {           

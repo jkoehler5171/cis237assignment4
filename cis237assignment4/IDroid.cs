@@ -1,4 +1,8 @@
-﻿using System;
+﻿//Jordan Koehler
+//November 8th, 2016
+//CIS 237 TR 3:30 - 5:00
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

@@ -1,4 +1,8 @@
-﻿using System;
+﻿//Jordan Koehler
+//November 8th, 2016
+//CIS 237 TR 3:30 - 5:00
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,6 +28,7 @@ namespace cis237assignment4
             UserInterface userInterface = new UserInterface(droidCollection,queue, astromechStack, janitorStack, utilityStack, protocolStack);
 
            
+            //Here, have a whole bunch of pre-created droids to use for testing! Some minor typos in these when I first typed em gave me quite a headache.
 
             droidCollection.Add("Carbonite", "Protocol", "Gold", 7);
             droidCollection.Add("Vanadium", "Protocol", "Silver", 10);
@@ -59,10 +64,12 @@ namespace cis237assignment4
                     case 2:
                         userInterface.PrintDroidList();
                         break;
+                    //Choose to Sort by Model
                     case 3:
                         userInterface.SortDroidListByModel();
                         break;
-                    case 4:
+                    //Choose to sort by cost.
+                    case 4:                   
                         userInterface.SortDroidListByCost();
                         break;
                 }

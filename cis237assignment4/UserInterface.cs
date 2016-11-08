@@ -1,4 +1,8 @@
-﻿using System;
+﻿//Jordan Koehler
+//November 8th, 2016
+//CIS 237 TR 3:30 - 5:00
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -109,11 +113,14 @@ namespace cis237assignment4
             Console.WriteLine(this.droidCollection.GetPrintString());
         }
 
+        //Calls the Model Sort method from Droid Collection and lets you know it did something.
         public void SortDroidListByModel()
         {
             droidCollection.ModelSort(queue, protocolStack, janitorStack, utilityStack, astromechStack);
             Console.WriteLine("Droid List Sorted By Model");
         }
+
+        //Calls the Cost sort method from Droid Collection and lets you know it did something.
 
         public void SortDroidListByCost()
         {

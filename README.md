@@ -2,7 +2,7 @@
 ## Due: 11-08-2016
 
 ## Author
-
+Jordan Koehler
 
 
 ## Description
@@ -84,11 +84,11 @@ Be sure to think about what the time complexity for the bucket sort will be. Thi
 | Total                                   | 100    |
 
 ## Outside Resources Used
-
+Let's see here, the work we did in class, Algorithms 4th Edition, and a healthy amount of MSDN and stack overflow.
 
 
 ## Known Problems, Issues, And/Or Errors in the Program
-
+I managed to get it all working. As a note, I only put my name at the top of classes that I in some way edited myself.
 
 
 ## Assignment 3 Description for reference

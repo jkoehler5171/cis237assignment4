@@ -1,4 +1,8 @@
-﻿using System;
+﻿//Jordan Koehler
+//November 8th, 2016
+//CIS 237 TR 3:30 - 5:00
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -125,6 +129,12 @@ namespace cis237assignment4
             return returnString;
         }
 
+        
+        //This here is just our bucket sort for the droids. Places each droid into a matching stack (I used a case structure based around the string instead of typing it)
+        //after that, it gets put into a queue, for the sole purpose of showing that... I can write a queue. After that it gets put back into the array.
+        //After some early issues I realized that it wasn't working properly due to data entry problems, so maybe using the Type to sort them would have worked better, 
+        //but by this time I had already finished it with strings.
+
         public void ModelSort(DroidQueue<IDroid> queue, DroidStack<IDroid> protocolStack, DroidStack<IDroid> janitorStack, DroidStack<IDroid> utilityStack, 
             DroidStack<IDroid> astromechStack)
         {
@@ -183,9 +193,35 @@ namespace cis237assignment4
 
         }
 
-        public void DroidMergeSort()
+        // This method checks for the size of the droid collection so that we don't have to work with nulls. Also makes sure that each droid has it's cost calculated
+        //before it is sorted.
+
+        private int SizeCheck () 
         {
-            MergeSort.Sort(droidCollection);            
+            int arraysize = 0;
+
+            foreach(IDroid droid in droidCollection)
+            {
+                
+                if (droid != null)
+                {
+                    droid.CalculateTotalCost();
+
+                    arraysize++;
+                }
+            }
+
+            return arraysize;
+        }
+
+
+        //This method calls the merge sort on the droid collection.
+
+        public void DroidMergeSort() 
+        {                  
+            
+            MergeSort.Sort(droidCollection, SizeCheck());
+            
         }
 
     }

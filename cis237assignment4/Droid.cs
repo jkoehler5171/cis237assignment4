@@ -1,4 +1,8 @@
-﻿using System;
+﻿//Jordan Koehler
+//November 8th, 2016
+//CIS 237 TR 3:30 - 5:00
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -73,6 +77,10 @@ namespace cis237assignment4
         }
 
         
+       //This here CompareTo method is here to implement the IComparable interface. It does pretty much what it says on the tin, comparing the total costs
+        //of two different droids. I had some trouble for awhile here because the droids don't have their costs calculated automatically when they are added
+        //to the array(They get calculated in the Print String method in Droid Collection), so I ended up comparing alot of zeroes.
+        
         public int CompareTo(object obj)
         {
             if (obj == null)
@@ -83,14 +91,14 @@ namespace cis237assignment4
             Droid otherDroid = obj as Droid;
 
             if (otherDroid != null)
-            {
-                return this.totalCost.CompareTo(otherDroid.totalCost);
+            {                
+                return  this.totalCost.CompareTo(otherDroid.totalCost);
             }
             else
                 throw new ArgumentException("Droid Doesn't have a cost.");
 
         }
-
+              
        
 
     }
